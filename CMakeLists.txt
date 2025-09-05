@@ -1,15 +1,14 @@
-cmake_minimum_required(VERSION 3.8)
-project(motor_control_system)
+cmake_minimum_required(VERSION 3.5)
+project(ros2_test_basic_node)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
 
-add_executable(command_publisher src/command_publisher.cpp)
-ament_target_dependencies(command_publisher rclcpp std_msgs)
+add_executable(command_publisher command_publisher.cpp)
+ament_target_dependencies(command_publisher rclcpp)
 
-add_executable(motor_controller src/motor_controller.cpp)
-ament_target_dependencies(motor_controller rclcpp std_msgs)
+add_executable(motor_controller motor_controller.cpp)
+ament_target_dependencies(motor_controller rclcpp)
 
 install(TARGETS
   command_publisher
